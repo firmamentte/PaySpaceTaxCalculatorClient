@@ -1,0 +1,38 @@
+﻿@model PaySpaceTaxCalculatorClient.Models.ApplicationUser.SignInModel
+
+@{
+    ViewBag.Title = "WELCOME TO PAYSPACE TAX CALCULATOR";
+
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<script src="~/js/ApplicationUser/application-user.js" asp-append-version="true"></script>
+
+<div class="page-form">
+    <form id="formSignIn" asp-antiforgery="true">
+        <fieldset>
+            <h2>SIGN IN</h2>
+            <input asp-for="EmailAddress" class="text-box" placeholder="Email Address" />
+            <input asp-for="UserPassword" class="text-box" type="password" placeholder="Password" />
+            <div id="messageSignIn" class="message-label"></div>
+            <nav>
+                <table id="navSignIn" class="nav-table">
+                    <tr>
+                        <td>
+                            <input type="button" value="SIGN IN" class="button" onclick="submitSignIn()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nav-separator"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="SIGN UP" class="button" onclick="signUp()" />
+                        </td>
+                    </tr>
+                </table>
+                <input id="progressBarSignIn" type="button" value="WORKING..." class="button-progress-bar" disabled="disabled" />
+            </nav>
+        </fieldset>
+    </form>
+</div>

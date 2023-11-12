@@ -1,0 +1,25 @@
+﻿@using PaySpaceTaxCalculatorClient.Controllers.ControllerHelpers;
+@{
+    ViewBag.Title = "ANNUAL INCOME TAXES";
+
+    ViewBag.GridViewMessage = "Please use the button above to add Annual Income Tax...";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/TaxCalculation/tax-calculation.js" asp-append-version="true"></script>
+
+<div class="div-search-create-buttons">
+    <table class="table-search-create-buttons">
+        <tr>
+            <td>
+                <input type="button" class="button" value="ADD" onclick="createAnnualIncomeTax()" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="divAnnualIncomeTaxGrid">
+    @{
+        await Html.RenderPartialAsync("AnnualIncomeTaxGrid");
+    }
+</div>

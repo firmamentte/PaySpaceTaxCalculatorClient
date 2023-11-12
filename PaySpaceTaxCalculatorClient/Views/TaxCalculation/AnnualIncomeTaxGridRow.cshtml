@@ -1,0 +1,23 @@
+﻿@using PaySpaceTaxCalculatorClient.Controllers.ControllerHelpers;
+@model List<PaySpaceTaxCalculatorClient.Models.TaxCalculation.AnnualIncomeTaxGridModel>
+
+@{
+    SharedHelper SharedHelper = new();
+}
+
+@if ((Model != null) && (Model.Any()))
+{
+    @foreach (var item in Model.OrderByDescending(item => item.CreationDate).ThenByDescending(item => item.AnnualIncomeTax))
+    {
+        <div class="gv-row">
+            <div class="gv-row-line">
+                <span class="gv-value">@item.CreationDate.ToString("yyyy-MMMM-dd")</span>
+            </div>
+            <div class="gv-row-line">
+                <span class="gv-label">Postal Code</span><span class="gv-value">(@item.PostalCodeValue)</span>
+                <span class="gv-label">Annual Income</span><span class="gv-value">(@SharedHelper.GetEnumDescription(EnumHelper.CurrencyCode.Code) @item.AnnualIncome.ToString("N"))</span>
+                <span class="gv-label">Annual Income Tax</span><span class="gv-value">(@SharedHelper.GetEnumDescription(EnumHelper.CurrencyCode.Code) @item.AnnualIncomeTax.ToString("N"))</span>
+            </div>
+        </div>
+    }
+}

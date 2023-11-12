@@ -1,0 +1,30 @@
+﻿@model PaySpaceTaxCalculatorClient.Models.TaxCalculation.CreateAnnualIncomeTaxModel
+
+<div class="popup-form-medium">
+    <form id="formCreateAnnualIncomeTaxForm" asp-antiforgery="true">
+        <fieldset>
+            <h1>CREATE ANNUAL INCOME TAX</h1>
+            <select asp-for="PostalCode" class="drop-down-list" asp-items="ViewBag.PostalCodes"></select>
+            <input asp-for="AnnualIncome" class="text-box" placeholder="Annual Income" />
+            <div id="messageCreateAnnualIncomeTax" class="message-label"></div>
+            <nav>
+                <table id="navCreateAnnualIncomeTax" class="nav-table">
+                    <tr>
+                        <td>
+                            <input type="button" value="SAVE" class="button" onclick="submitCreateAnnualIncomeTax()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nav-separator"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="CANCEL" class="button" onclick="hidePopupForm()" />
+                        </td>
+                    </tr>
+                </table>
+                <input id="progressBarCreateAnnualIncomeTax" type="button" value="WORKING..." class="button-progress-bar" disabled="disabled" />
+            </nav>
+        </fieldset>
+    </form>
+</div>
